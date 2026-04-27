@@ -1,25 +1,25 @@
-🏥 API Gestión de Clínica Médica Vitali
+ API Gestión de Clínica Médica Vitali
 
 Sistema desarrollado en .NET  para la gestión de una clínica médica, permitiendo administrar:
 
-- 👤 Pacientes  
-- 🩺 Médicos  
-- 📅 Citas  
-- 📄 Historial clínico  
+-  Pacientes  
+-  Médicos  
+-  Citas  
+-  Historial clínico  
 
 ---
 
 ##  Características del API
 
 - API REST completa (CRUD)  
-- Autenticación con JWT 🔐  
-- Documentación con Swagger 📘  
+- Autenticación con JWT 
+- Documentación con Swagger 
 - Login personalizado (HTML/CSS)  
 - Arquitectura en capas (Controllers, Services, Models)  
 
 ---
 
-## 🔐 Credenciales de acceso
+##  Credenciales de acceso
 Las credenciales se dan en el PDF entregado
 
 ---
@@ -27,7 +27,7 @@ Las credenciales se dan en el PDF entregado
 
 ---
 
-## ⚙️ Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 - .NET 8  
 - Entity Framework Core  
@@ -38,7 +38,7 @@ Las credenciales se dan en el PDF entregado
 
 ---
 
-## ▶️ Ejecución del proyecto
+##  Ejecución del proyecto
 
 Ejecuta el proyecto y abre en el navegador:
 
@@ -49,7 +49,7 @@ http://localhost:5000/swagger
 
 ---
 
-## 🔑 Autenticación
+##  Autenticación
 
 1. Ir a `/index.html`  
 2. Iniciar sesión  
@@ -60,7 +60,7 @@ http://localhost:5000/swagger
 
 ##  Endpoints principales
 
-### 👤 Paciente
+###  Paciente
 - `GET /api/Paciente`  
 - `GET /api/Paciente/{id}`  
 - `POST /api/Paciente`  
@@ -69,7 +69,7 @@ http://localhost:5000/swagger
 
 ---
 
-### 🩺 Médico
+###  Médico
 - `GET /api/Medico`  
 - `POST /api/Medico`  
 - `PUT /api/Medico/{id}`  
@@ -77,7 +77,7 @@ http://localhost:5000/swagger
 
 ---
 
-### 📅 Citas
+###  Citas
 - `GET /api/Cita`  
 - `POST /api/Cita`  
 - `PUT /api/Cita/{id}`  
@@ -85,7 +85,7 @@ http://localhost:5000/swagger
 
 ---
 
-### 📄 Historial Clínico
+###  Historial Clínico
 - `GET /api/Historial`  
 - `POST /api/Historial`  
 
