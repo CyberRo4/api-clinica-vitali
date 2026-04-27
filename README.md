@@ -9,7 +9,7 @@ Sistema desarrollado en .NET  para la gestión de una clínica médica, permitie
 
 ---
 
-## 🚀 Características del API
+##  Características del API
 
 - API REST completa (CRUD)  
 - Autenticación con JWT 🔐  
@@ -58,7 +58,7 @@ http://localhost:5000/swagger
 
 ---
 
-## 📡 Endpoints principales
+##  Endpoints principales
 
 ### 👤 Paciente
 - `GET /api/Paciente`  
@@ -91,7 +91,7 @@ http://localhost:5000/swagger
 
 ---
 
-## 🧠 Arquitectura del proyecto
+##  Arquitectura del proyecto
 
 El proyecto está organizado en capas para una mejor estructura:
 
@@ -102,21 +102,21 @@ El proyecto está organizado en capas para una mejor estructura:
 
 ---
 
-## 🔒 Seguridad
+##  Seguridad
 
 La API utiliza autenticación mediante **JWT**, protegiendo los endpoints y garantizando que solo usuarios autenticados puedan acceder a los servicios.
 
 ---
 
-## 👨‍💻 Autores
+##  Autores
 
 - Ronaldo Villalobos Fonseca  
 - Melany Sofía Carvajal Gómez  
 
 ---
 
-## 📌 Estado del proyecto
+##  Estado del proyecto
 
-✅ Proyecto finalizado  
-🎯 Listo para entrega académica  
-🚀 Base lista para futuras mejoras  
+ Proyecto finalizado  
+ Listo para entrega académica  
+ Base lista para futuras mejoras  
