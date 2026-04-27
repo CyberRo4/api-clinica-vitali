@@ -118,5 +118,4 @@ La API utiliza autenticación mediante **JWT**, protegiendo los endpoints y gara
 ##  Estado del proyecto
 
  Proyecto finalizado  
- Listo para entrega académica  
  Base lista para futuras mejoras  
