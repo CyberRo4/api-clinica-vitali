@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Clínica Vitali</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: url('https://cdnb.artstation.com/p/assets/images/images/082/054/399/large/isaac-moises-rivas-trejo-bg-30.jpg?1731957996') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+            body::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                top: 0;
+                left: 0;
+            }
+
+        @keyframes iosFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes glassBreathing {
+            0%, 100% {
+                backdrop-filter: blur(25px);
+            }
+
+            50% {
+                backdrop-filter: blur(30px);
+            }
+        }
+
+        .overlay {
+            position: relative;
+            z-index: 1;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 20px;
+            padding: 40px;
+            width: 320px;
+            text-align: center;
+            color: white;
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+            animation: iosFadeIn 0.8s ease-out, glassBreathing 6s ease-in-out infinite;
+        }
+
+            .overlay:hover {
+                transform: scale(1.01);
+                transition: 0.3s ease;
+            }
+
+            .overlay h2 {
+                margin-bottom: 25px;
+            }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* INPUTS PRO */
+        .input-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+            .input-group label {
+                font-size: 13px;
+                color: rgba(255,255,255,0.7);
+                margin-bottom: 5px;
+                display: block;
+            }
+
+        /* 🔥 CONTENEDOR CON ICONO */
+        .input-icon {
+            position: relative;
+        }
+
+        /* ICONO IZQUIERDO */
+        .icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.6);
+            font-size: 16px;
+        }
+
+        /* INPUTS */
+        .input-icon input {
+            width: 100%;
+            height: 50px;
+            padding-left: 40px; /* 🔥 espacio icono izquierdo */
+            padding-right: 50px; /* 🔥 espacio icono derecho */
+
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            color: white;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+            .input-icon input::placeholder {
+                color: rgba(255,255,255,0.5);
+            }
+
+            .input-icon input:hover {
+                border: 1px solid rgba(255,255,255,0.25);
+            }
+
+            .input-icon input:focus {
+                border: 1px solid rgba(56,189,248,0.8);
+                box-shadow: 0 0 12px rgba(56,189,248,0.4);
+            }
+
+        /* 👁️ ICONO CONTRASEÑA */
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* 🔥 IMPORTANTE */
+        input, button {
+            box-sizing: border-box;
+        }
+
+        /* 🔥 MUY IMPORTANTE */
+        input, button {
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            height: 50px; /* 🔥 mismo alto que inputs */
+
+            background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 10px;
+        }
+
+            button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(56,189,248,0.6);
+            }
+
+            button:active {
+                transform: scale(0.96);
+            }
+
+        #error {
+            color: #ff6b6b;
+            margin-top: 10px;
+        }
+
+        #loading {
+            display: none;
+            color: #38bdf8;
+            margin-top: 10px;
+        }
+
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: red;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 12px;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="logout" onclick="logout()">Cerrar sesión</div>
+
+    <div class="overlay">
+        <div class="avatar">🏥</div>
+
+        <h2>Clínica Vitali</h2>
+
+        <div class="input-group">
+            <label>Usuario</label>
+            <div class="input-icon">
+                <span class="icon">🧑‍⚕️</span>
+                <input type="text" id="username" placeholder="Ingrese su usuario">
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Contraseña</label>
+            <div class="input-icon">
+                <span class="icon">🔒</span>
+                <input type="password" id="password" placeholder="Ingrese su contraseña">
+                <span class="toggle-password" onclick="togglePassword()">👁️</span>
+            </div>
+        </div>
+
+        <button onclick="login()">Ingresar</button>
+
+        <p id="loading">Cargando...</p>
+        <p id="error"></p>
+    </div>
+
+    <script>
+        async function login() {
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const error = document.getElementById("error");
+            const loading = document.getElementById("loading");
+
+            error.innerText = "";
+
+            if (!username || !password) {
+                error.innerText = "Debe ingresar usuario y contraseña";
+                return;
+            }
+
+            loading.style.display = "block";
+
+            try {
+                const response = await fetch("/api/auth/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem("token", data.token);
+                    window.location.href = "/swagger?token=" + data.token;
+                } else {
+                    error.innerText = "❌ Credenciales incorrectas";
+                }
+            } catch (e) {
+                error.innerText = "❌ Error de conexión";
+            }
+
+            loading.style.display = "none";
+        }
+
+        function togglePassword() {
+            const input = document.getElementById("password");
+            input.type = input.type === "password" ? "text" : "password";
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "/";
+        }
+
+        document.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                login();
+            }
+        });
+    </script>
+
+</body>
+</html>
