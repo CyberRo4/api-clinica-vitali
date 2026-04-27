@@ -122,7 +122,7 @@ La API utiliza autenticación mediante **JWT**, protegiendo los endpoints y gara
 
  ---
 
- Imagenes del Swagger
+ Imagenes del proyecto en ejecución
  
 <img width="576" height="741" alt="s1" src="https://github.com/user-attachments/assets/50d6b59f-483a-40b9-b789-ee5f39097423" />
 <img width="576" height="303" alt="s2" src="https://github.com/user-attachments/assets/345fa0c0-5718-4bab-8619-29b4efd3fc80" />
